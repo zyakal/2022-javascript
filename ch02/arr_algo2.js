@@ -23,4 +23,4 @@ arr.forEach(function(item){
 });
 console.log(`Sum : ${sum2}`);
 
-왜안되는거야ㅇㅇ
+뭐 어떻게 되어가고 있는건가
