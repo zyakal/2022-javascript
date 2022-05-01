@@ -10,7 +10,7 @@ var arr = {
     'forEach' : function(cb) {
         for(var i=0; i<this.length; i++){
             cb(this[i]);
-            console.log(this[i]);
+            console.log(this[i]);dd
         }
         
     }
