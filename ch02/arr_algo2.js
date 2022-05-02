@@ -10,6 +10,7 @@ var arr = {
     'forEach' : function(cb) {
         for(var i=0; i<this.length; i++){
             cb(this[i]);
+            console.log(this[i]);
         }
         
     }
@@ -22,3 +23,4 @@ arr.forEach(function(item){
 });
 console.log(`Sum : ${sum2}`);
 
+뭐 어떻게 되어가고 있는건가
