@@ -22,5 +22,3 @@ arr.forEach(function(item){
     sum2 += item;
 });
 console.log(`Sum : ${sum2}`);
-
-뭐 어떻게 되어가고 있는건가
