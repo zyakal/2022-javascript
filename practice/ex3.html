@@ -13,11 +13,35 @@
     <a class="a" href="ex2.html">EX2</a>
     <a class="a" href="ex3.html">EX3</a>
     </h2>
-    
-    <div>
-        function A_N() {
-    <input type="button" value="Night" onclick="
-        let target = document.querySelector('body');
+
+    <script>
+        function nightDay_handler(self) {
+            let target = document.querySelector('body');
+        let a_all = document.querySelectorAll('a');        
+        if(self.value === 'Night'){
+            target.style.backgroundColor ='black';
+            target.style.color ='white';            
+            self.value = 'Day';
+            let i = 0;
+            while( i < a_all.length )
+            {
+                a_all[i].style.color = 'powderblue';
+                i++;
+            }
+        } else {
+            target.style.backgroundColor ='white';
+            target.style.color ='black';               
+            self.value = 'Night';
+            let i = 0;
+            while( i < a_all.length )
+            {
+                a_all[i].style.color = 'blue';
+                i++;
+            }
+        }
+    }
+        function nightDay_handler2() {
+            let target = document.querySelector('body');
         let a_all = document.querySelectorAll('a');        
         if(this.value === 'Night'){
             target.style.backgroundColor ='black';
@@ -39,9 +63,15 @@
                 a_all[i].style.color = 'blue';
                 i++;
             }
-        }    
-        ">
+        }
+    
     }
+    </script>
+    
+    <div>
+        
+    <input type="button" value="Night" onclick="nightDay_handler(this)">
+    
 
     <div>
     Ut labore proident anim in labore quis sunt.Anim nulla amet in adipisicing incididunt veniam mollit aliquip.
@@ -49,19 +79,7 @@
     Commodo nisi exercitation sunt anim labore exercitation. Reprehenderit qui anim ullamco sit.
     </div>
 
-    <input type="button" value="Night" onclick="
-        let target = document.querySelector('body');   
-        let a_all = document.querySelectorAll('a');          
-        if(this.value === 'Night'){
-            target.style.backgroundColor ='black';
-            target.style.color ='white';            
-            this.value = 'Day';
-        } else {
-            target.style.backgroundColor ='white';
-            target.style.color ='black';             
-            this.value = 'Night';
-        }    
-        ">
+    <input type="button" value="Night" onclick="nightDay_handler2()">
 
 </body>
 </html>
