@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Object</h1>
+    <script>
+        let coworker = {
+            "pro" : "grammer",
+            "design" : "program",
+            "etc" : "ukia"
+        }
+
+        for( let key in coworker) {
+            document.write(key + ' : ' + coworker[key] + '<br>');
+        }
+    </script>
+    <h2>Property & Method</h2>
+    <script>
+        coworker.showAll = function() {
+            for( let key in this) {
+            document.write(key + ' : ' + this[key] + '<br>');
+            }
+        }
+        coworker.showAll();
+    </script>
+    
+</body>
+</html>

@@ -15,30 +15,32 @@
     </h2>
 
     <script>
+        
+        function setColor(color){
+            let a_all = document.querySelectorAll('a');     
+            let i = 0;
+                while( i < a_all.length )
+                {
+                    a_all[i].style.color = color;
+                    i++;
+                }
+        }
+
         function nightDay_handler(self) {
             let target = document.querySelector('body');
-        let a_all = document.querySelectorAll('a');        
-        if(self.value === 'Night'){
-            target.style.backgroundColor ='black';
-            target.style.color ='white';            
-            self.value = 'Day';
-            let i = 0;
-            while( i < a_all.length )
-            {
-                a_all[i].style.color = 'powderblue';
-                i++;
+               
+            if(self.value === 'Night'){
+                target.style.backgroundColor ='black';
+                target.style.color ='white';            
+                self.value = 'Day';
+                setColor('powderblue');
+                
+            } else {
+                target.style.backgroundColor ='white';
+                target.style.color ='black';               
+                self.value = 'Night';
+                setColor('blue');
             }
-        } else {
-            target.style.backgroundColor ='white';
-            target.style.color ='black';               
-            self.value = 'Night';
-            let i = 0;
-            while( i < a_all.length )
-            {
-                a_all[i].style.color = 'blue';
-                i++;
-            }
-        }
     }
         function nightDay_handler2() {
             let target = document.querySelector('body');
