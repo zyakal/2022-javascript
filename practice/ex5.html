@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Comparison operator & Boolean</h1>
+    <h2>
+    <a class="a" href="ex1.html">EX1</a>
+    <a class="a" href="ex2.html">EX2</a>
+    <a class="a" href="ex3.html">EX3</a>
+    </h2>
+
+    <script>
+        let links = {
+            
+        }
+        let bodys = {
+            
+        }
+        function setColor(color){
+            let a_all = document.querySelectorAll('a');     
+            let i = 0;
+                while( i < a_all.length )
+                {
+                    a_all[i].style.color = color;
+                    i++;
+                }
+        }
+
+        function nightDay_handler(self) {
+            let target = document.querySelector('body');
+               
+            if(self.value === 'Night'){
+                target.style.backgroundColor ='black';
+                target.style.color ='white';            
+                self.value = 'Day';
+                setColor('powderblue');
+                
+            } else {
+                target.style.backgroundColor ='white';
+                target.style.color ='black';               
+                self.value = 'Night';
+                setColor('blue');
+            }
+    }
+        function nightDay_handler2() {
+            let target = document.querySelector('body');
+        let a_all = document.querySelectorAll('a');        
+        if(this.value === 'Night'){
+            target.style.backgroundColor ='black';
+            target.style.color ='white';            
+            this.value = 'Day';
+            let i = 0;
+            while( i < a_all.length )
+            {
+                a_all[i].style.color = 'powderblue';
+                i++;
+            }
+        } else {
+            target.style.backgroundColor ='white';
+            target.style.color ='black';               
+            this.value = 'Night';
+            let i = 0;
+            while( i < a_all.length )
+            {
+                a_all[i].style.color = 'blue';
+                i++;
+            }
+        }
+    
+    }
+    </script>
+    
+    <div>
+        
+    <input type="button" value="Night" onclick="nightDay_handler(this)">
+    
+
+    <div>
+    Ut labore proident anim in labore quis sunt.Anim nulla amet in adipisicing incididunt veniam mollit aliquip.
+    Minim eiusmod nostrud nostrud commodo. Ullamco laboris anim amet ad tempor aliquip excepteur id fugiat eu adipisicing aliqua velit. 
+    Commodo nisi exercitation sunt anim labore exercitation. Reprehenderit qui anim ullamco sit.
+    </div>
+
+    <input type="button" value="Night" onclick="nightDay_handler2()">
+
+</body>
+</html>
