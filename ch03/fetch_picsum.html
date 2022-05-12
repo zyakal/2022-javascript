@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이미지 리스트</title>
-    <style>img { width: 100px;} </style>
+    
 </head>
 <body>
     <div id="list"></div>
     <button onclick="getMore();">더보기</button>
     <script>
         var divListElem = document.querySelector('#list');
-        var page = 0;
+        var page = 1;
 
         function getMore() {
             page++;
@@ -33,11 +33,14 @@
             for(var i=0; i<list.length; i++) {
                 var item = list[i];
                 var img = document.createElement('img');
-                img.src = item.download_url;
+                var img_width = parseInt(item.width/10);
+                var img_height = parseInt(item.height/10);
+                img.src = `https://picsum.photos/id/`+item.id+ `/` + img_width + `/` + img_height;
                 divListElem.append(img);
             }
         }
-        getImglist();
+        getImgList();
+
     </script>
 </body>
 </html>
