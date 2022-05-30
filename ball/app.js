@@ -12,7 +12,7 @@ class App {
         window.addEventListener('resize', this.resize.bind(this), false);
         this.resize();
 
-        this.ball = new Ball(this.stageWidth, this.stageHeight, 60, 15);
+        this.ball = new Ball(this.stageWidth, this.stageHeight, 60, 5);
 
         window.requestAnimationFrame(this.animate.bind(this));
     }
@@ -21,9 +21,10 @@ class App {
         this.stageWidth = document.body.clientWidth;
         this.stageHeight = document.body.clientHeight;
 
-        this.canvas.width = this.stageWidth * 2;
-        this.canvas.height = this.stageHeight * 2;
-        this.ctx.scale(2,2);
+        this.canvas.width = this.stageWidth * 1;
+        this.canvas.height = this.stageHeight * 1;
+        this.ctx.scale(1,1);
+        console.log(this.ctx);
     }
 
     animate(t) {
