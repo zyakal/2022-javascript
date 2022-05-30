@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .dan {
+        display: inline-block;
+        padding: 0 20px 30px 20px;
+        margin: 15px;
+        border: 1px solid #ccc;
+        line-height: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>구구단</h1>
+    <script>
+      var i = 1;
+
+      for (i; i < 10; i++) {
+        var z = 1;
+        document.write('<div class="dan">');
+        document.write(`${i}단`);
+        for (z; z < 10; z++) {
+          var val = i * z;
+
+          document.write(`<div>${i} X ${z} = ${val}</div>`);
+        }
+        document.write("</div>");
+      }
+    </script>
+  </body>
+</html>

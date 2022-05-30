@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // p.536  즉시실행 함수
+        // 즉시실행 함수를 자주 쓰는데 그 이유는 스코프 문제. 즉, 원하지 않는 영역에까지 겹치지 않도록
+        (function () {
+            document.write('실행<br>');
+        })();
+        //↑ 요고
+
+        let dd = function (val) {
+            document.write(`val: ${val}`);
+
+        }
+        dd(10);
+
+
+    </script>
+</body>
+
+</html>

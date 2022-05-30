@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //userNumber값이 3의 배수이면 알림창에 "3의 배수입니다."
+      // 3의 배수가 아니면 알림창에 "3의 배수가 아닙니다."
+      const userNumber = prompt("숫자를 입력하세요.");
+      var result = "입력이 취소됐습니다.";
+      if (userNumber)
+        if (userNumber !== null) {
+          var result =
+            userNumber % 3 === 0 && userNumber != 0
+              ? "3의 배수입니다"
+              : "3의 배수가 아닙니다";
+        }
+
+      alert(result);
+
+      //취소를 누르면 > "입력이 취소됐습니다"
+      //확인 > 좀 전 처리와 같게 하는데 삼항식으로 해결
+      // 빈칸 또는 3의 배수가 아닌 숫자를  넣었을 때 3의 배수가 아닙니다
+    </script>
+  </body>
+</html>

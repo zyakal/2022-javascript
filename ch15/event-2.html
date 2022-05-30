@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result {
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#" id="first_a">Green</a></li>
+        <li><a href="#" id='second_a'>Orange</a></li>
+        <li><a href="#" onclick="changeBg('Purple');">Purple</a></li>
+    </ul>
+    <div id="result"></div>
+    <script>
+        const resultDiv = document.querySelector('#result');
+
+        function changeBg(color) {
+            resultDiv.style.backgroundColor = color;
+        }
+
+        // function changeOrange() {
+        //     resultDiv.style.backgroundColor = 'orange';
+        // }
+
+        const firstA = document.querySelector('#first_a');
+        firstA.onclick = function () {
+            changeBg('green');
+
+        }
+
+        const secondA = document.querySelector('#second_a');
+        // secondA.onclick = changeOrange;
+        // 1. 함수이름만 적으면 함수의 주소값
+        // 2. 함수 뒤에()를 입력하면 호출한 값을 줌
+
+        function bindFn() {
+            // return function () {
+            //     resultDiv.style.backgroundColor = 'orange';
+            // }
+            return () => { document.querySelector('#result').style.backgroundColor = 'orange'; }
+
+        }
+
+        secondA.onclick = bindFn();
+    </script>
+</body>
+
+</html>

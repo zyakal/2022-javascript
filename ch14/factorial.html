@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var n = prompt("숫자를 입력하세요 : ");
+      //갑 입력 안했으면 "노 입력!" 출력
+      //5 > 5 * 4 * 3 * 2 * 1 > 값
+      var val = 1;
+
+      if (n === null || n === " " || n === "") {
+        document.write("노 입력");
+      } else {
+        var cnt = Number(n);
+        if (cnt) {
+          var result = 1;
+          while (cnt > 0) {
+            result *= cnt--;
+          }
+          document.write(`${n}! : ${result}`);
+        } else {
+          document.write(`숫자만 입력해 주세요 `);
+        }
+      }
+
+      //   if (n === null || n === " " || n === "") {
+      //     document.write("노 입력");
+      //   } else {
+      //     document.write(`${n} > ${n} * `);
+      //     while (n > 1) {
+      //       n--;
+
+      //       val *= n;
+      //       if (n > 1) {
+      //         document.write(`${n} * `);
+      //       } else {
+      //         document.write(`${n}`);
+      //       }
+      //     }
+      //     document.write(` > ${val}`);
+      //   }
+    </script>
+  </body>
+</html>
