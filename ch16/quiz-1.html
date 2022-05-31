@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현재 시각</title>
+</head>
+
+<body>
+    <p>현재 시각 <span id="current" class="display"></span></p>
+    <script>
+        let cnt = 0;
+        // setInterval(function () {
+        //     console.log(cnt++);
+        // }, 1000)
+        setInterval(displayNow, 1000);
+
+        // function displayNow() {
+        //     const currentTime = new Date();
+        //     const hour = currentTime.getHours();
+        //     const minute = fillZero(currentTime.getMinutes());
+        //     const second = fillZero(currentTime.getSeconds());
+        //     console.log(currentTime.getHours());
+        //     document.querySelector('#current').innerText = ampm(hour) + ':' + minute + ':' + second;
+        // }
+        // function fillZero(val) {
+        //     return ('0' + val).slice(-2);
+        // }
+        // function ampm(hour) {
+        //     if (hour > 12) {
+        //         return "오후" + (hour - 12);
+        //     }
+        //     else { return "오전" + hour; }
+        // }
+
+        function displayNow() {
+            const now = new Date();
+            const hour = now.getHours();
+            const minute = fillZero(now.getMinutes());
+            const second = fillZero(now.getSeconds());
+            const currentTime =
+                document.querySelector('#current').innerText = ampm(hour) + ':' + minute + ':' + second;
+        }
+        function fillZero(val) {
+            return ('0' + val).slice(-2);
+        }
+        function ampm(hour) {
+            if (hour > 12) {
+                return "오후" + (hour - 12);
+            }
+            else { return "오전" + hour; }
+        }
+
+
+    </script>
+</body>
+
+</html>

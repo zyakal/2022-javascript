@@ -16,6 +16,7 @@
 
 <body>
     <button id="btnOpen">창열기</button>
+    <button onclick="moveWin();">창이동</button>
     <button id="btnClose">창닫기</button>
     <div id="back"></div>
     <script>
@@ -35,6 +36,9 @@
         function changeBack() {
             const divBack = document.querySelector('#back');
             divBack.style.backgroundColor = 'red';
+        }
+        function moveWin() {
+            newWin.moveBy(20, 20);
         }
     </script>
 </body>
