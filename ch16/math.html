@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Math.PI = 'aaa';
+        console.log(Math.PI);
+        console.log(Math.ceil(12.1));
+        console.log(Math.round(12.1));
+        console.log(Math.round(12.5));
+        console.log(Math.floor(12.9));
+
+        const rval = Math.floor(Math.random() * 10);
+        console.log(rval);
+
+        const rval2 = Math.ceil(Math.random() * 9);
+        console.log(rval2);
+        // while (true) {
+        //     const rval2 = Math.ceil(Math.random() * 9);
+
+        //     if (rval2 < 1 || rval2 > 9) {
+        //         console.log('잘못만듦');
+        //         break;
+        //     }
+        // }
+
+
+        // 10~20
+        const rval3 = Math.round(Math.random() * 10 + 10);
+        console.log(rval3);
+        // while (true) {
+        //     const rval3 = Math.round(Math.random() * 10 + 10);
+
+        //     if (rval3 < 10 || rval3 > 20) {
+        //         console.log('잘못만듦');
+        //         break;
+        //     }
+        // }
+
+        //25~50   0.01~0.99
+        const rval4 = Math.round(Math.random() * 25 + 25);
+        console.log(rval4);
+        // while (true) {
+        //     const rval4 = Math.round(Math.random() * 25 + 25);
+
+        //     if (rval4 < 25 || rval4 > 50) {
+        //         console.log('잘못만듦');
+        //         break;
+        //     }
+        // }
+        // 25~40
+        const rval5 = Math.floor(Math.random() * 16 + 25);
+        console.log(rval5);
+
+    </script>
+</body>
+
+</html>
