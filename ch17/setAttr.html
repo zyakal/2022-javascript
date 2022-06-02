@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 500px;
+            height: 300px;
+        }
+
+        #main>img {
+            width: 100%;
+        }
+
+        #sub {
+            width: 500px;
+            height: 100px;
+            display: flex;
+        }
+
+        #sub>img {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <img id="main_img" src="https://picsum.photos/200/300?grayscale" alt="">
+    </div>
+    <div id="sub">
+        <img id="sub_img" src="https://picsum.photos/200/300?grayscale" alt="">
+        <img id="sub_img" src="https://picsum.photos/id/237/200/300" alt="">
+        <img id="sub_img" src="https://picsum.photos/seed/picsum/200/300" alt="">
+    </div>
+    <script>
+        let As = document.querySelectorAll('#sub_img');
+        let B = document.querySelector('#main_img');
+        console.log(As);
+        As.forEach(A => {
+            A.addEventListener('click', () => {
+                B.src = A.src;
+            })
+        });
+
+    </script>
+</body>
+
+</html>

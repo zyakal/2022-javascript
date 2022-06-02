@@ -42,7 +42,7 @@
             const second = fillZero(now.getSeconds());
             const currentTime =
                 document.querySelector('#current').innerText = ampm(hour) + ':' + minute + ':' + second;
-        }
+        } // document.querySelector('#current').innerText = now.toLocaleTimeString(); 으로 간단하게 표현할수있다
         function fillZero(val) {
             return ('0' + val).slice(-2);
         }

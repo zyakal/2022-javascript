@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        .pic {
+            width: 200px;
+            cursor: pointer;
+        }
+
+        #lightbox {
+            width: 100%;
+            height: 100%;
+            background-color: #00000066;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        #lightbox>img {
+            border: 2px solid #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <ul>
+            <li><img class="pic" src="https://picsum.photos/200/300?grayscale" alt=""></li>
+            <li><img class="pic" src="https://picsum.photos/id/237/200/300" alt=""></li>
+            <li><img class="pic" src="https://picsum.photos/seed/picsum/200/300" alt=""></li>
+        </ul>
+    </div>
+    <div id="lightbox">
+        <img src="https://picsum.photos/200/300?grayscale" id="lightboxImage">
+    </div>
+    <script>
+        const lightbox = document.querySelector('#lightbox');
+        const lightboxImage = document.querySelector('#lightboxImage');
+        function showLightbox() {
+            const bigLocation = this.src;
+            lightboxImage.setAttribute('src', bigLocation);
+            lightbox.style.display = 'flex';
+        }
+
+        const pics = document.querySelectorAll('.pic');
+
+        pics.forEach(pic => {
+
+            pic.addEventListener('click', showLightbox);
+
+        });
+        lightbox.addEventListener('click', function () {
+            lightbox.style.display = 'none';
+        });
+
+
+    </script>
+</body>
+
+</html>
