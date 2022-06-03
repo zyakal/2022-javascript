@@ -7,25 +7,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body {
+        transition-property: all;
+        transition-duration: 3s;
+    }
+</style>
 
 <body>
     <div id="container">
         <h1>DOM을 공부합시다</h1>
-        <a href="#" onclick="addP(); //this.onclick=''; 순서대로 실행되어 마지막은 this.onclick이 실행되어 종료 ">더보기</a>
+        <button onclick="addContents2();">더보기</button>
         <div id="info"></div>
     </div>
     <script>
-        let cnt = 1;
+        const imgSrc = 'https://picsum.photos/200/300?grayscale';
+        const imgAlt = '이미지 정보'
         const divInfo = document.querySelector('#info');
-        function addP() {
+        function addContents() {
 
-            const newP = document.createElement('p');
-            const txtNode = document.createTextNode(`DOM은 document object model의 줄임말입니다. ${cnt++}`);
-            newP.appendChild(txtNode);
-            document.querySelector('#info').appendChild(newP);
+            const newP = divInfo.appendChild(document.createElement('p'));
+
+            newP.append('DOM은 document object model의 줄임말입니다.');
+            const newI = divInfo.appendChild(document.createElement('img'));
+            newI.src = imgSrc;
+            newI.alt = imgAlt;
+
 
         }
-        divInfo.toggle = addP;
+
+        function addContents2() {
+            const div = document.createElement('div');
+
+            div.innerHTML = `
+            <p> Dom은 document object model의 줄임말입니다. </p>
+            <img src="${imgSrc}" alt="${imgAlt}">
+            `;
+            divInfo.appendChild(div);
+        }
+
     </script>
 </body>
 

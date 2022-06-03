@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            transition: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="https://picsum.photos/200/300/?blur" id="blur">
+    <script>
+        const bodyAll = document.querySelector('body');
+        bodyAll.onclick = function (e) {
+
+            bodyAll.innerHTML = "<img id='pointer' src='https://picsum.photos/200/300/?blur'>";
+            const iconImg = document.querySelector('#pointer');
+            iconImg.style.left = e.pageX;
+            iconImg.style.top = e.pageY;
+
+
+
+
+
+            console.log(`이벤트 유형: ${e.type}, 발생위치 : ${e.pageX}. ${e.pageY}`);
+
+        }
+    </script>
+</body>
+
+</html>

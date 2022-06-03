@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .newp {
+            /* cursor: pointer; */
+            list-style-type: none;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .x {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>web Programing</h1>
+    <p>공부할 주제를 기록해 보세요</p>
+    <div>
+        <input type="text" id="subject" onkeyup="enter();">
+        <input type="button" value="추가" onclick="newReg(); ">
+        <input type="button" value="삭제" onclick="delSubject();">
+    </div>
+    <div id="itemList"></div>
+    <script>
+        const a = document.querySelector('#itemList');
+        const b = document.querySelector('#subject');
+
+        function newReg() {
+            const newDiv = a.appendChild(document.createElement('li'));
+            newDiv.classList.add('newp');
+            newDiv.append(b.value);
+            const newX = newDiv.appendChild(document.createElement('span'));
+            newX.classList.add('x');
+            // 내용선택해서 지울경우
+            // newDiv.addEventListener('click', function () {
+
+            //     this.remove();
+            // });
+            newX.innerText = "X";
+            // newX.innerHTML = "<button onclick='delSubject()';>X</button>";
+
+            const c = document.querySelectorAll('.x');
+
+            c.forEach(item => {
+                    item.addEventListener('click', function () {
+                    this.parentElement.remove();
+                    })
+            });
+
+
+            b.value = null;
+            b.focus();
+
+        }
+        function enter() {
+            if (window.event.keyCode == 13) {
+                newReg();
+            }
+        }
+        // 마지막꺼만 지울경우
+        // function delSubject() { a.lastChild.remove(); }
+
+
+
+
+
+
+
+        // 선택해서 지울 경우
+
+        
+
+
+        // function delSubject() {
+        //     const c = document.querySelectorAll('.newp');
+        //     c.forEach(item => {
+        //         item.addEventListener('click', function () {
+        //             this.remove();
+        //         })
+        //     });
+
+        // }
+    </script>
+</body>
+
+</html>
