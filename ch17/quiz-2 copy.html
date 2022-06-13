@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type='number'] {
+            width: 50px;
+        }
+
+        table {
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+
+        table,
+        td {
+            border: 1px solid black;
+        }
+
+
+
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="number" id="rowNum"> 행
+        <input type="number" id="colNum"> 열
+        <button>작성</button>
+    </div>
+    <div id="result"></div>
+</body>
+<script>
+
+    const button = document.querySelector('div button');
+    button.addEventListener('click', function () {
+        const row = document.querySelector('#rowNum').value;
+        const col = document.querySelector('#colNum').value;
+        let str = "<table>";
+        for (let i = 0; i < row; i++) {
+            str += "<tr>";
+            for (let z = 0; z < col; z++) {
+                str += "<td>" + i + "," + z + "</td>";
+            }
+            str += "</tr>";
+        }
+        str += "</table>";
+        document.write(str);
+    })
+
+
+
+</script>
+
+</html>

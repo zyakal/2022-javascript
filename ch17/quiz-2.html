@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type='number'] {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="number" id="rowNum"> 행
+        <input type="number" id="colNum"> 열
+        <button>작성</button>
+    </div>
+    <div id="result"></div>
+</body>
+<script>
+
+    const button = document.querySelector('div button');
+    button.addEventListener('click', function () {
+        const row = document.querySelector('#rowNum').value;
+        const col = document.querySelector('#colNum').value;
+        document.write("<table border=1>");
+        for (let i = 0; i < row; i++) {
+            document.write("<tr>");
+            for (let z = 0; z < col; z++) {
+                document.write("<td>" + i + "," + z + "</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    })
+
+
+
+</script>
+
+</html>
