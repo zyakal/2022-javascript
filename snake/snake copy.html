@@ -43,15 +43,15 @@
 </body>
 <script>
 
-    var y, x; // player
-    var cy, cx; // coin
-    var MY = 20, MX = 34; // field size
-    var score;
-    var keepMove;
-    var direction; // 0 1 2 3 상 하 좌 우
-    var speed;
-    var snakeQueue = new Array();
-    var snakeColor = "#ED5B5B",
+    let y, x; // player
+    let cy, cx; // coin
+    let MY = 20, MX = 34; // field size
+    let score;
+    let keepMove;
+    let direction; // 0 1 2 3 상 하 좌 우
+    let speed;
+    let snakeQueue = new Array();
+    let snakeColor = "#ED5B5B",
         tileColor = "#EEEEEE"
     wallColor = "#2E2E2E",
         coinColor = "#4476C6";
@@ -83,10 +83,10 @@
 
     // 보드판 표시
     function drawBoard() {
-        var boardTag = "<table border=0>";
-        for (var i = 0; i < MY; i++) {
+        let boardTag = "<table border=0>";
+        for (let i = 0; i < MY; i++) {
             boardTag += "<tr>";
-            for (var j = 0; j < MX; j++)
+            for (let j = 0; j < MX; j++)
                 boardTag += `<td id='${i}_${j}'></td>`;
             boardTag += "</tr>";
         }
@@ -96,30 +96,34 @@
 
     // 벽 표시
     function drawWall() {
-        var wallCell = new Array();
+        let wallCell = new Array();
         console.log(wallCell);
-        for (var i = 0; i < MY; i++) wallCell.push(new Array(i, 0));
-        for (var i = 0; i < MY; i++) wallCell.push(new Array(i, MX - 1));
-        for (var i = 0; i < MX; i++) wallCell.push(new Array(0, i));
-        for (var i = 0; i < MX; i++) wallCell.push(new Array(MY - 1, i));
-        for (var i = 0; i < wallCell.length; i++) {
-            var wy = wallCell[i][0];
-            var wx = wallCell[i][1];
+        for (let i = 0; i < MY; i++) wallCell.push(new Array(i, 0));
+        for (let i = 0; i < MY; i++) wallCell.push(new Array(i, MX - 1));
+        for (let i = 0; i < MX; i++) wallCell.push(new Array(0, i));
+        for (let i = 0; i < MX; i++) wallCell.push(new Array(MY - 1, i));
+        for (let i = 0; i < wallCell.length; i++) {
+            let wy = wallCell[i][0];
+            let wx = wallCell[i][1];
             document.getElementById(String(wy) + "_" + String(wx)).style.background = wallColor;
             document.getElementById(String(wy) + "_" + String(wx)).style.borderRadius = "1.5px";
 
         }
     }
 
+    // console.log(document.querySelector("#10_17"));
+    // 안찍히는 이유 : 첫 글자가 숫자인 id는 css3에서 탐색하지 못한다 
+
     // 뱀 표시
     function setSnake(y, x) {
         snakeQueue.push(new Array(y, x));
-        document.querySelector(`${y}_${x}`).style.background = snakeColor;
-        // document.getElementById(String(y) + "_" + String(x)).style.background = snakeColor;
+
+        console.log(document.getElementById(String(y) + "_" + String(x)));
+        document.getElementById(String(y) + "_" + String(x)).style.background = snakeColor;
     }
     function removeSnake() {
-        var ty = snakeQueue[0][0];
-        var tx = snakeQueue[0][1];
+        let ty = snakeQueue[0][0];
+        let tx = snakeQueue[0][1];
         snakeQueue.shift();
         document.getElementById(String(ty) + "_" + String(tx)).style.background = tileColor;
     }
@@ -153,7 +157,7 @@
         }
     }
     function showPlus() {
-        var plusedScore = 100 * (snakeQueue.length - 1);
+        let plusedScore = 100 * (snakeQueue.length - 1);
         document.getElementById("plus").innerHTML = "     +" + plusedScore;
         setTimeout("document.getElementById(\"plus\").innerHTML=\"\"", 500);
     }
@@ -167,8 +171,8 @@
         return false;
     }
     function isInQueue(y, x) {
-        var p = new Array(y, x);
-        for (var i = 0; i < snakeQueue.length; i++)
+        let p = new Array(y, x);
+        for (let i = 0; i < snakeQueue.length; i++)
             if (snakeQueue[i][0] == p[0] && snakeQueue[i][1] == p[1])
                 return true;
         return false;
@@ -177,7 +181,7 @@
     // 동전 생성 및 충돌
     function setCoin() {
         do {
-            var rand = parseInt(Math.random() * ((MY - 2) * (MX - 2)));
+            let rand = parseInt(Math.random() * ((MY - 2) * (MX - 2)));
             cy = parseInt(rand / (MX - 2)) + 1;
             cx = rand % (MX - 2) + 1;
         } while (isInQueue(cy, cx))

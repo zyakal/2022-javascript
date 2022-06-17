@@ -14,6 +14,11 @@
         #move {
             border: 1px solid red;
         }
+
+        td {
+            width: 1rem;
+            height: 1rem;
+        }
     </style>
 </head>
 
@@ -21,45 +26,65 @@
 
 </body>
 <script>
-
+    let x, y;
     let tableX = 30, tableY = 30;
-    let x = ~~(tableX / 2), y = ~~(tableY / 2);
-    const speed = 75;
+    let snakeQueue = new Array();
+    let ty, tx;
+    const speed = 500;
     let direction;
+    function init() {
+        field();
+        x = ~~(tableX / 2), y = ~~(tableY / 2);
+        setSnake(x, y);
+        keepMove = setInterval("move(direction)", speed);
+
+    }
+
+    init();
 
 
+    // 맵
     function field() {
 
         let border = "<table>";
         for (let i = 0; i < tableX; i++) {
             border += "<tr>";
             for (let j = 0; j < tableY; j++) {
-                border += `<td id='${i}_${j}'></td>`;
+                border += `<td id='x${j}_y${i}'></td>`;
             }
             border += "</tr>";
 
 
         }
         border += "</table>";
+
         document.write(border);
     }
-    field();
-    // function move(x, y) {
-    //     let moving = document.querySelector(`#${x}_${y}`);
-    //     moving.classList.toggle('move');
-    // }
+
+
     document.onkeydown = keyEvent;
-    console.log(document.onkeydown);
 
     function setSnake(x, y) {
-        snake(document.querySelector('x_y'));
+        snakeQueue.push(new Array(x, y));
+        $snake_location = document.querySelector(`#x${x}_y${y}`);
+
+        $snake_location.style.backgroundColor = 'red';
+
+    }
+    function removeSnake() {
+        ty = snakeQueue[0][0];
+        tx = snakeQueue[0][1];
+        snakeQueue.shift();
+
+        $snake_location = document.querySelector(`#x${ty}_y${tx}`);
+        console.log($snake_location);
+
+
+        $snake_location.style.backgroundColor = 'white';
     }
 
-    function snake() {
-        this.backgroundColor = 'red';
-    }
 
-
+    // 방향키 입력
     function keyEvent(e) {
         if (e.keyCode === 37 && direction !== 2) { direction = 0; } // left
         else if (e.keyCode === 38 && direction !== 3) { direction = 1; } // up
@@ -67,25 +92,44 @@
         else if (e.keyCode === 40 && direction !== 1) { direction = 3; } // down
     }
 
-
+    //뱀 조작
     function move(direction) {
         switch (direction) {
             case 0:
-                return x -= 1;
+                y -= 1;
                 break;
             case 1:
-                return y += 1;
+                x -= 1;
                 break;
             case 2:
-                return x += 1;
+                y += 1;
                 break;
             case 3:
-                return y -= 1;
+                x += 1;
                 break;
 
         }
+        setSnake(y, x);
+        removeSnake();
+
+
+
+
     }
-    setInterval(move(direction), speed);
+
+    //점 생성
+
+    function box() {
+        console.log(Math.random());
+        const bx = ~~(Math.random() * tableY);
+        const by = ~~(Math.random() * tableX);
+        console.log(bx);
+        console.log(document.querySelector(`#x${bx}_y${by}`));
+        document.querySelector(`#x${bx}_y${by}`).style.backgroundColor = "red";
+
+
+    }
+    box();
 
 
 
