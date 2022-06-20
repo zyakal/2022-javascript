@@ -29,6 +29,7 @@
     let x, y;
     let tableX = 30, tableY = 30;
     let snakeQueue = new Array();
+    let boxQueue = new Array();
     let ty, tx;
     const speed = 500;
     let direction;
@@ -37,6 +38,8 @@
         x = ~~(tableX / 2), y = ~~(tableY / 2);
         setSnake(x, y);
         keepMove = setInterval("move(direction)", speed);
+        box();
+        boxcrash();
 
     }
 
@@ -69,6 +72,7 @@
         $snake_location = document.querySelector(`#x${x}_y${y}`);
 
         $snake_location.style.backgroundColor = 'red';
+        console.log(snakeQueue[0]);
 
     }
     function removeSnake() {
@@ -77,7 +81,7 @@
         snakeQueue.shift();
 
         $snake_location = document.querySelector(`#x${ty}_y${tx}`);
-        console.log($snake_location);
+
 
 
         $snake_location.style.backgroundColor = 'white';
@@ -124,12 +128,25 @@
         const bx = ~~(Math.random() * tableY);
         const by = ~~(Math.random() * tableX);
         console.log(bx);
+        boxQueue.push(new Array(bx, by));
         console.log(document.querySelector(`#x${bx}_y${by}`));
         document.querySelector(`#x${bx}_y${by}`).style.backgroundColor = "red";
 
 
     }
-    box();
+
+    // 충돌
+    function boxcrash() {
+
+        console.log(snakeQueue[0]);
+        console.log(boxQueue[0]);
+        if (snakeQueue[0] === boxQueue[0]) {
+            snakeQueue.push(new Array(bx, by));
+            console.log(snakeQueue);
+        }
+    }
+
+
 
 
 
